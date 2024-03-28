@@ -1,0 +1,18 @@
+# Ignore build artifacts and temporary files
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore IDE-specific files and directories
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.log
+
+# Ignore version control files
+.git/
+.svn/
