@@ -1,10 +1,25 @@
-# helidon-quickstart-hrapp
+# Helidon Quickstart HR Application with Helidon Integration (helidon-quickstart-hrapp)
 
-Sample Helidon SE project that includes multiple REST operations.
-For demo integrate HRApp with Helios
+This repository showcases a sample Helidon SE project implementing various REST operations for an HR application (HRApp). It also demonstrates integrating HRApp functionalities with Helidon, potentially a separate system or service.
+
+## Project Highlights:
+
+* Multiple REST Endpoints: The application exposes REST endpoints for managing HR data (functionality details can be added here).
+* Helidon Integration: The project showcases interaction with Helidon, likely for enhanced HR functionalities (further details on the integration purpose would be beneficial).
+
+## Getting Started (Optional):
+
+* Provide instructions on cloning the repository, setting up dependencies, and running the application (if applicable).
+
+## Further Exploration (Optional):
+
+* Suggest ways users can modify the project to suit their specific needs (e.g., adding new REST endpoints, customizing Helidon integration).
+
+## Additional Information (Optional):
+
+* Include links to relevant Helidon documentation or resources.
 
 ## Build and run
-
 
 With JDK17+
 ```bash
@@ -19,8 +34,6 @@ curl -X GET http://localhost:8080/employees
 [{"id":101,"name":"Ann","salary":1234.56},{"id":102,"name":"Bob","salary":1200.34},{"id":103,"name":"Ray","salary":1122.33}]
 
 ```
-
-
 
 ## Try metrics
 

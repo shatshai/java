@@ -27,3 +27,4 @@ replay_pid*
 **/manifest.mf
 **/build.xml
 **/build
+**/target/*

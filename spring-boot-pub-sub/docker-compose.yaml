@@ -1,0 +1,41 @@
+services:
+  java-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: "production"
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/account
+      SPRING_DATASOURCE_USERNAME: account
+      SPRING_DATASOURCE_PASSWORD: account
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:latest
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: account
+      MYSQL_ROOT_PASSWORD: account
+      MYSQL_USER: account
+      MYSQL_PASSWORD: account
+    volumes:
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  rabbit-mq:
+    build:
+      context: .
+      dockerfile: Dockerfile.rabbit-mq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./rabbitmq-definition.json:/etc/rabbitmq/definitions.json
+    environment:
+      RABBITMQ_MANAGEMENT_LOAD_DEFINITIONS: /etc/rabbitmq/definitions.json

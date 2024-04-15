@@ -1,0 +1,7 @@
+FROM rabbitmq:management
+
+ADD rabbitmq.config /etc/rabbitmq/
+ADD rabbitmq-definition.json /etc/rabbitmq/definitions.json
+
+RUN chown rabbitmq:rabbitmq /etc/rabbitmq/rabbitmq.config /etc/rabbitmq/definitions.json
+ 
