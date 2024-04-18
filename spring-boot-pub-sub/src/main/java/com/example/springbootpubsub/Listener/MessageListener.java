@@ -17,6 +17,6 @@ public class MessageListener {
 
     @RabbitListener(queues = "${rabbitmq.queue}")
     public void handleMessage(MessageInterface message) {
-        System.out.println("Received message from queue " + queueName + ": " + message.getMessageType() + ": " + message.getId());
+        System.out.println("Received message from queue " + queueName + ": " + message.getAction() + ": " + message.getMessageType() + ": " + message.getId());
     }
 }

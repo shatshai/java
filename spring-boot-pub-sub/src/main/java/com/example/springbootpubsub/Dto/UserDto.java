@@ -10,11 +10,13 @@ import com.example.springbootpubsub.Interface.MessageInterface;
 @Setter
 @NoArgsConstructor
 public class UserDto implements MessageInterface {
+    private String action;
     private Integer id;
     private String username;
     private String email;
 
-    public UserDto(Integer id, String username, String email) {
+    public UserDto(String action, Integer id, String username, String email) {
+        this.action = action;
         this.id = id;
         this.username = username;
         this.email = email;
@@ -24,8 +26,16 @@ public class UserDto implements MessageInterface {
         return this.id;
     }
 
+    public String getAction() {
+        return this.action;
+    }
+
     public String getMessageType() {
         return "user";
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 
     public void setId(Integer id) {

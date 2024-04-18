@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.springbootpubsub.Entity.User;
 import com.example.springbootpubsub.Repository.UserRepository;
 import com.example.springbootpubsub.Dto.*;
+import com.example.springbootpubsub.Interface.MessageInterface;
 
 @Service
 public class UserService {
@@ -22,7 +23,7 @@ public class UserService {
         User userSaveResult = userRepository.save(user);
         if (userSaveResult.getId() > 0) {
             // publish message
-            UserDto userDto = new UserDto(userSaveResult.getId(), userSaveResult.getUsername(), userSaveResult.getEmail());
+            UserDto userDto = new UserDto(MessageInterface.INSERT, userSaveResult.getId(), userSaveResult.getUsername(), userSaveResult.getEmail());
             this.queueService.publishMessage(userDto);
         }
 

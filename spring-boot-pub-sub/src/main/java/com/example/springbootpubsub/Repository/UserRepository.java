@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.example.springbootpubsub.Entity.User;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Integer> {
     // Define custom query methods if needed
     @Query("SELECT u FROM User u WHERE u.username = :username")
     List<User> findByUsernameCustomQuery(@Param("username") String username);
